@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RecipeDetailView: View {
+    
     var recipe:Recipe
     
     var body: some View {
