@@ -18,6 +18,7 @@
 		04AD8EF327029FA800BE580E /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD8EF227029FA800BE580E /* RecipeDetailView.swift */; };
 		04AD8EF52703AF6A00BE580E /* RecipeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD8EF42703AF6A00BE580E /* RecipeTabView.swift */; };
 		04AD8EF72703FBF500BE580E /* RecipeFeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD8EF62703FBF400BE580E /* RecipeFeaturedView.swift */; };
+		04AD8EFA270905C300BE580E /* Rational.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD8EF9270905C300BE580E /* Rational.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		04AD8EF227029FA800BE580E /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
 		04AD8EF42703AF6A00BE580E /* RecipeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTabView.swift; sourceTree = "<group>"; };
 		04AD8EF62703FBF400BE580E /* RecipeFeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFeaturedView.swift; sourceTree = "<group>"; };
+		04AD8EF9270905C300BE580E /* Rational.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rational.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				04AD8EE527000C8400BE580E /* Views */,
 				04AD8EEB27000D6A00BE580E /* Services */,
 				04AD8EE827000CA700BE580E /* data */,
+				04AD8EF82709054B00BE580E /* Utilities */,
 				04AD8EDA27000BAD00BE580E /* Assets.xcassets */,
 				04AD8EDF27000BAD00BE580E /* Info.plist */,
 				04AD8EDC27000BAD00BE580E /* Preview Content */,
@@ -128,6 +131,14 @@
 				04AD8EF02700127C00BE580E /* DataService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		04AD8EF82709054B00BE580E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				04AD8EF9270905C300BE580E /* Rational.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +213,7 @@
 			files = (
 				04AD8EEF27000E4D00BE580E /* RecipeViewModel.swift in Sources */,
 				04AD8EF327029FA800BE580E /* RecipeDetailView.swift in Sources */,
+				04AD8EFA270905C300BE580E /* Rational.swift in Sources */,
 				04AD8EED27000E2B00BE580E /* Recipe.swift in Sources */,
 				04AD8ED927000BA900BE580E /* RecipeListView.swift in Sources */,
 				04AD8ED727000BA900BE580E /* RecipeListApp.swift in Sources */,

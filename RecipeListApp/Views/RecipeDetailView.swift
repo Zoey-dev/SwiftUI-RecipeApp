@@ -10,14 +10,31 @@ import SwiftUI
 struct RecipeDetailView: View {
     
     var recipe:Recipe
+    @State var selectServingSize = 2
     
     var body: some View {
         
         ScrollView {
             VStack(alignment: .leading) {
+                
+                //MARK: Image Section
                 Image(recipe.image)
                     .resizable()
                     .scaledToFill()
+                //MARK: - Server Size Picker
+                VStack(alignment: .leading) {
+                    Text("Select your serving size:")
+                        
+                    Picker("", selection: $selectServingSize) {
+                        Text("2").tag(2)
+                        Text("4").tag(4)
+                        Text("6").tag(6)
+                        Text("8").tag(8)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .frame(width: 170)
+                    
+                }.padding()
                 
                 //MARK: - Ingredients
                 
@@ -27,7 +44,7 @@ struct RecipeDetailView: View {
                         .padding([.bottom, .top], 1)
                     
                     ForEach(recipe.ingredients) { item in
-                        Text("• " + item.name)
+                        Text("• " + RecipeViewModel.getServings(ingredient: item, recipeServings: recipe.servings, targetServings: selectServingSize) + " " + item.name.lowercased())
                            // .padding(.bottom, 1)
                     }
                 }
