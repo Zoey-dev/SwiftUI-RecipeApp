@@ -11,6 +11,7 @@ struct RecipeFeaturedView: View {
     
     @EnvironmentObject var model:RecipeViewModel
     @State var showDetailedView = false
+    @State var tabSelectionIndex = 0
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -22,7 +23,7 @@ struct RecipeFeaturedView: View {
                 
             
         GeometryReader { geo in
-            TabView {
+            TabView(selection: $tabSelectionIndex) {
                 //loop over the recipes
                 ForEach(0..<model.recipes.count) { index in
                     
@@ -47,6 +48,7 @@ struct RecipeFeaturedView: View {
                                 }
                             }
                         })
+                            .tag(index)
                         .sheet(isPresented: $showDetailedView) {
                             // show detailed view when true
                             RecipeDetailView(recipe: model.recipes[index])
@@ -66,15 +68,29 @@ struct RecipeFeaturedView: View {
             VStack(alignment: .leading, spacing: 10) {
                 Text("Preparation Time:")
                     .font(.headline)
-                Text("1 hour")
-                Text("Highlights")
+                Text(model.recipes[tabSelectionIndex].prepTime)
+                //Text("1 hour")
+                Text("Highlights:")
                     .font(.headline)
-                Text("Healthy, Hearty")
+                RecipeHighlights(highlight: model.recipes[tabSelectionIndex].highlights)
+                //Text(model.recipes[tabSelectionIndex].[highlights])
+               // Text("Healthy, Hearty")
             }.padding([.leading, .bottom])
             
         }
-    
+        .onAppear {
+            featuredRecipe()
+        }
     }
+    
+    func featuredRecipe() {
+        
+        let index = model.recipes.firstIndex { (recipe) -> Bool in
+            return recipe.featured
+        }
+        tabSelectionIndex = index ?? 0
+    }
+    
 }
 
 struct RecipeFeaturedView_Previews: PreviewProvider {
