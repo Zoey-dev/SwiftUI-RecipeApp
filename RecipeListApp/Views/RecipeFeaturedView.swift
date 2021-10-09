@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct RecipeFeaturedView: View {
-    
-    @EnvironmentObject var model:RecipeViewModel
     @State var showDetailedView = false
     @State var tabSelectionIndex = 0
+    
+    //use a fetchRequest to look into our core data database amd fetch all the recipes
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)], predicate: NSPredicate(format: "featured == true"))
+    var recipes: FetchedResults<Recipe>
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -20,15 +22,12 @@ struct RecipeFeaturedView: View {
                 .padding(.leading)
                 .padding(.top, 30)
                 .font(.title)
-                
             
-        GeometryReader { geo in
-            TabView(selection: $tabSelectionIndex) {
-                //loop over the recipes
-                ForEach(0..<model.recipes.count) { index in
-                    
-                    //if featured is true then create a rectangle for each
-                    if model.recipes[index].featured {
+            
+            GeometryReader { geo in
+                TabView(selection: $tabSelectionIndex) {
+                    //loop over the recipes
+                    ForEach(0..<recipes.count) { index in
                         
                         //recipe card
                         Button(action: {
@@ -39,42 +38,43 @@ struct RecipeFeaturedView: View {
                                     .foregroundColor(.white)
                                 
                                 VStack (spacing: 0) {
-                                    Image(model.recipes[index].image)
+                                    let image = UIImage(data: recipes[index].image ?? Data()) ?? UIImage()
+                                    Image(uiImage: image)
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
                                         .clipped()
-                                    Text(model.recipes[index].name)
+                                    Text(recipes[index].name)
                                         .padding(5)
                                 }
                             }
                         })
                             .tag(index)
-                        .sheet(isPresented: $showDetailedView) {
-                            // show detailed view when true
-                            RecipeDetailView(recipe: model.recipes[index])
-                        }
-                        .buttonStyle(PlainButtonStyle())
-                        .frame(width: geo.size.width - 40, height: geo.size.height - 100)
-                        .cornerRadius(15)
-                        .shadow(color: .gray, radius: 10, x: 0.0, y: 0.0)
+                            .sheet(isPresented: $showDetailedView) {
+                                // show detailed view when true
+                                RecipeDetailView(recipe: recipes[index])
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .frame(width: geo.size.width - 40, height: geo.size.height - 100)
+                            .cornerRadius(15)
+                            .shadow(color: .gray, radius: 10, x: 0.0, y: 0.0)
+                        
                     }
+                    
                 }
-                
-            }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
+                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
             }
             
             VStack(alignment: .leading, spacing: 10) {
                 Text("Preparation Time:")
                     .font(.headline)
-                Text(model.recipes[tabSelectionIndex].prepTime)
+                Text(recipes[tabSelectionIndex].prepTime)
                 //Text("1 hour")
                 Text("Highlights:")
                     .font(.headline)
-                RecipeHighlights(highlight: model.recipes[tabSelectionIndex].highlights)
+                RecipeHighlights(highlight: recipes[tabSelectionIndex].highlights)
                 //Text(model.recipes[tabSelectionIndex].[highlights])
-               // Text("Healthy, Hearty")
+                // Text("Healthy, Hearty")
             }.padding([.leading, .bottom])
             
         }
@@ -85,7 +85,7 @@ struct RecipeFeaturedView: View {
     
     func featuredRecipe() {
         
-        let index = model.recipes.firstIndex { (recipe) -> Bool in
+        let index = recipes.firstIndex { (recipe) -> Bool in
             return recipe.featured
         }
         tabSelectionIndex = index ?? 0

@@ -8,7 +8,7 @@
 import Foundation
 
 
-class Recipe: Identifiable, Decodable {
+class RecipeJSON: Identifiable, Decodable {
     
     var id: UUID?
     var name: String
@@ -20,13 +20,13 @@ class Recipe: Identifiable, Decodable {
     var totalTime: String
     var servings: Int
     var highlights: [String]
-    var ingredients: [Ingredients]
+    var ingredients: [IngredientsJSON]
     var directions: [String]
     
     
 }
 
-class Ingredients: Identifiable, Decodable {
+class IngredientsJSON: Identifiable, Decodable {
     
     var id: UUID?
     var name: String
