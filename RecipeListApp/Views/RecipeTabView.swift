@@ -22,14 +22,19 @@ struct RecipeTabView: View {
             
             RecipeListView()
                 .tabItem {
-                    
                     VStack {
                         Image(systemName: "list.bullet")
                         Text("Recipe List")
                     }
                 }
             
-            
+            AddRecipeView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "plus.circle")
+                        Text("Create Recipe")
+                    }
+                }
         }
         .environmentObject(RecipeViewModel())
     }

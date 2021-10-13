@@ -28,6 +28,12 @@
 		04D07FBE2710716800931108 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D07FBD2710716800931108 /* Persistence.swift */; };
 		04D07FC02710819200931108 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D07FBF2710819200931108 /* Constants.swift */; };
 		04D07FC22712459800931108 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D07FC12712459700931108 /* SearchBarView.swift */; };
+		04D07FC4271385D900931108 /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D07FC3271385D800931108 /* AddRecipeView.swift */; };
+		04D07FC627138E0300931108 /* AddMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D07FC527138E0200931108 /* AddMetaData.swift */; };
+		04D07FC82713AE6100931108 /* AddListMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D07FC72713AE6100931108 /* AddListMetaData.swift */; };
+		04D07FCA2713B91700931108 /* AddIngredientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D07FC92713B91700931108 /* AddIngredientData.swift */; };
+		04D07FCC271456EE00931108 /* marcos-paulo-prado-QYVCzK-bnYU-unsplash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04D07FCB271456EE00931108 /* marcos-paulo-prado-QYVCzK-bnYU-unsplash.jpg */; };
+		04D07FCE27151EAD00931108 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D07FCD27151EAD00931108 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +60,12 @@
 		04D07FBD2710716800931108 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		04D07FBF2710819200931108 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		04D07FC12712459700931108 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		04D07FC3271385D800931108 /* AddRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
+		04D07FC527138E0200931108 /* AddMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMetaData.swift; sourceTree = "<group>"; };
+		04D07FC72713AE6100931108 /* AddListMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListMetaData.swift; sourceTree = "<group>"; };
+		04D07FC92713B91700931108 /* AddIngredientData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientData.swift; sourceTree = "<group>"; };
+		04D07FCB271456EE00931108 /* marcos-paulo-prado-QYVCzK-bnYU-unsplash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "marcos-paulo-prado-QYVCzK-bnYU-unsplash.jpg"; sourceTree = "<group>"; };
+		04D07FCD27151EAD00931108 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +106,7 @@
 				04AD8EE827000CA700BE580E /* data */,
 				04AD8EF82709054B00BE580E /* Utilities */,
 				04AD8EDA27000BAD00BE580E /* Assets.xcassets */,
+				04D07FCB271456EE00931108 /* marcos-paulo-prado-QYVCzK-bnYU-unsplash.jpg */,
 				04AD8EDF27000BAD00BE580E /* Info.plist */,
 				04AD8EDC27000BAD00BE580E /* Preview Content */,
 			);
@@ -117,6 +130,11 @@
 				04D07FB0270EF02500931108 /* RecipeHighlights.swift */,
 				04AD8EF62703FBF400BE580E /* RecipeFeaturedView.swift */,
 				04D07FC12712459700931108 /* SearchBarView.swift */,
+				04D07FC3271385D800931108 /* AddRecipeView.swift */,
+				04D07FC527138E0200931108 /* AddMetaData.swift */,
+				04D07FC72713AE6100931108 /* AddListMetaData.swift */,
+				04D07FC92713B91700931108 /* AddIngredientData.swift */,
+				04D07FCD27151EAD00931108 /* ImagePicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +246,7 @@
 				04AD8EDE27000BAD00BE580E /* Preview Assets.xcassets in Resources */,
 				04AD8EEA27000CC300BE580E /* recipes.json in Resources */,
 				04AD8EDB27000BAD00BE580E /* Assets.xcassets in Resources */,
+				04D07FCC271456EE00931108 /* marcos-paulo-prado-QYVCzK-bnYU-unsplash.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,16 +263,21 @@
 				04AD8EEF27000E4D00BE580E /* RecipeViewModel.swift in Sources */,
 				04AD8EF327029FA800BE580E /* RecipeDetailView.swift in Sources */,
 				04D07FB1270EF02500931108 /* RecipeHighlights.swift in Sources */,
+				04D07FC627138E0300931108 /* AddMetaData.swift in Sources */,
 				04AD8EFA270905C300BE580E /* Rational.swift in Sources */,
 				04AD8EED27000E2B00BE580E /* Recipe.swift in Sources */,
 				04AD8ED927000BA900BE580E /* RecipeListView.swift in Sources */,
 				04AD8ED727000BA900BE580E /* RecipeListApp.swift in Sources */,
+				04D07FC4271385D900931108 /* AddRecipeView.swift in Sources */,
+				04D07FCA2713B91700931108 /* AddIngredientData.swift in Sources */,
+				04D07FCE27151EAD00931108 /* ImagePicker.swift in Sources */,
 				04D07FC22712459800931108 /* SearchBarView.swift in Sources */,
 				04D07FBA271051DE00931108 /* Ingredient+CoreDataProperties.swift in Sources */,
 				04AD8EF12700127C00BE580E /* DataService.swift in Sources */,
 				04D07FBB271051DE00931108 /* Recipe+CoreDataClass.swift in Sources */,
 				04AD8EF72703FBF500BE580E /* RecipeFeaturedView.swift in Sources */,
 				04AD8EF52703AF6A00BE580E /* RecipeTabView.swift in Sources */,
+				04D07FC82713AE6100931108 /* AddListMetaData.swift in Sources */,
 				04D07FB9271051DE00931108 /* Ingredient+CoreDataClass.swift in Sources */,
 				04D07FB4270EFC4100931108 /* Recipe Data Model.xcdatamodeld in Sources */,
 			);
